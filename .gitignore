@@ -1,0 +1,21 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.env
+
+# VSCode
+.vscode/
+
+# Mac
+.DS_Store
+
+# Database
+*.db
+
+# Instance folder
+instance/

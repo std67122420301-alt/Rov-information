@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>ROV Hero Database</h2>
+
+<form method="GET">
+<input type="text" name="search" placeholder="Search hero">
+<button type="submit">Search</button>
+</form>
+
+<br>
+
+<a href="/add">➕ Add Hero</a>
+
+<hr>
+
+<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;">
+
+{% for hero in heroes %}
+
+<div class="card">
+
+<img src="{{ hero.image }}" width="150">
+
+<h2>{{ hero.name }}</h2>
+
+<p>Role : {{ hero.role }}</p>
+
+<p>
+Difficulty :
+{% for i in range(hero.difficulty) %}
+⭐
+{% endfor %}
+</p>
+
+<p>HP</p>
+<div class="bar">
+<div style="background:red;width:{{hero.hp/50}}%;height:10px;"></div>
+</div>
+
+<p>Attack</p>
+<div class="bar">
+<div style="background:orange;width:{{hero.attack/3}}%;height:10px;"></div>
+</div>
+
+<p>Defense</p>
+<div class="bar">
+<div style="background:blue;width:{{hero.defense/3}}%;height:10px;"></div>
+</div>
+
+<p>Speed</p>
+<div class="bar">
+<div style="background:green;width:{{hero.speed}}%;height:10px;"></div>
+</div>
+
+<br>
+
+<a href="/edit/{{hero.id}}">Edit</a> |
+<a href="/delete/{{hero.id}}">Delete</a>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}

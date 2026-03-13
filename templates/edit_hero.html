@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Edit Hero</h2>
+
+<form method="POST">
+
+<p>Name</p>
+<input type="text" name="name" value="{{hero.name}}">
+
+<p>Role</p>
+<input type="text" name="role" value="{{hero.role}}">
+
+<p>Image URL</p>
+<input type="text" name="image" value="{{hero.image}}">
+
+<p>Difficulty</p>
+<input type="number" name="difficulty" value="{{hero.difficulty}}">
+
+<p>HP</p>
+<input type="number" name="hp" value="{{hero.hp}}">
+
+<p>Attack</p>
+<input type="number" name="attack" value="{{hero.attack}}">
+
+<p>Defense</p>
+<input type="number" name="defense" value="{{hero.defense}}">
+
+<p>Speed</p>
+<input type="number" name="speed" value="{{hero.speed}}">
+
+<br><br>
+
+<button type="submit">Update Hero</button>
+
+</form>
+
+{% endblock %}

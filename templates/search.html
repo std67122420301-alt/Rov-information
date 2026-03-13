@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>🔎 Search ROV Hero</h2>
+
+<form method="POST">
+
+<input type="text" name="name" placeholder="Enter hero name">
+
+<button type="submit">Search</button>
+
+</form>
+
+<br>
+
+{% if hero %}
+
+<div class="card">
+
+<img src="{{hero.image}}" width="150">
+
+<h2>{{hero.name}}</h2>
+
+<p>Role : {{hero.role}}</p>
+
+<p>
+Difficulty :
+{% for i in range(hero.difficulty) %}
+⭐
+{% endfor %}
+</p>
+
+<p>HP</p>
+<div style="background:#444;width:200px;">
+<div style="background:red;width:{{hero.hp/50}}%;height:10px;"></div>
+</div>
+
+<p>Attack</p>
+<div style="background:#444;width:200px;">
+<div style="background:orange;width:{{hero.attack/3}}%;height:10px;"></div>
+</div>
+
+<p>Defense</p>
+<div style="background:#444;width:200px;">
+<div style="background:blue;width:{{hero.defense/3}}%;height:10px;"></div>
+</div>
+
+<p>Speed</p>
+<div style="background:#444;width:200px;">
+<div style="background:green;width:{{hero.speed}}%;height:10px;"></div>
+</div>
+
+</div>
+
+{% elif hero == None %}
+
+<p>Hero not found</p>
+
+{% endif %}
+
+{% endblock %}
